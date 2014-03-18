@@ -1,0 +1,57 @@
+<div class="header">
+  <h3 class="title primary-font" ng-bind="page.title"></h3>
+  <h3 class="title primary-font floatRight">March 2014</h3>
+</div>
+  <div class="row top">
+    <div class="col-md-6 item" ng-repeat="graph in rows[0]">
+      <div class="flex-row">
+        <div class="col-md-9">
+          <graph data=graph sizes=sizes size="big"></graph>
+        </div>
+        <div class="col-md-3 flex-column flex-reverse">
+          <div class="graph-icon"></div>
+        </div>
+      </div>
+      <div class="flex-row">
+        <div class="col-md-4">
+        <span class="small-change primary-font" ng-class="{negative: graph.percChange < 0 }">{{ graph.percChange }}%</span>
+        </div>
+        <div class="col-md-5 right">
+          <p class="big-number primary-font">{{ graph.lastY }}</p>
+        </div>
+        <div class="col-md-3">
+          <h5 class="primary-font title" ng-bind="graph.title"></h5>
+          <p class="primary-font desc">Some text here.</p>
+        </div>
+      </div>
+  </div>
+
+</div>
+<div class="row" ng-repeat="i in [1,2]">
+  <div class="col-md-3 item small" ng-repeat="graph in rows[i]">
+        <div class="flex-row">
+          <div class="col-md-7">
+            <graph data=graph sizes=sizes size="small"></graph>
+          </div>
+          <div class="col-md-5 flex-column flex-reverse">
+            <div class="graph-icon"></div>
+          </div>
+        </div>
+        <div class="flex-row">
+          <div class="col-md-3">
+          <span class="small-change primary-font" ng-class="{negative: graph.percChange < 0 }">{{ graph.percChange || 0 }}%</span>
+          </div>
+          <div class="col-md-4 right">
+            <p class="big-number primary-font">{{ graph.lastY || 'n/a'}}</p>
+          </div>
+          <div class="col-md-5">
+            <h5 class="primary-font title" ng-bind="graph.title"></h5>
+            <p class="primary-font desc">Some text here.</p>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+  <p>♥ Mozilla</p>
+</div>

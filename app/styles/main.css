@@ -1,0 +1,205 @@
+body {
+  border-top: 2px solid #fff;
+  background: url(../images/background.png) repeat-x #dce3e9 center -30px;
+}
+
+.primary-font {
+  font-family: "Alegreya Sans SC";
+}
+
+.title {
+  background: #333;
+  color: #FFF;
+  display: inline;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+.title.floatRight {
+  background: transparent;
+  color: #222;
+}
+
+.row.top {
+  margin-bottom: 20px;
+}
+
+h5.title {
+  font-size: 85%;
+}
+
+.small .title {
+  padding: 1px;
+}
+
+.small h5.title {
+  font-size: 95%;
+}
+
+.container {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
+.fox {
+  height: 100%;
+  width: 30%;
+  position: absolute;
+  right: 30px;
+  top: 240px;
+  background: url(../images/fox.png) no-repeat center right;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 40px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+.item {
+  padding-bottom: 20px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row > div {
+  padding-left: 0px;
+}
+
+.flex-reverse {
+  justify-content: flex-end;
+}
+
+.right {
+  text-align: right;
+}
+
+.small {
+  font-size: 70%;
+}
+
+.desc {
+  font-size: 80%;
+}
+
+.small .desc {
+  font-size: 100%;
+}
+
+.big-number {
+  font-weight: bold;
+  font-size: 350%;
+  margin-top: -13px;
+}
+
+.small-change {
+  color: #FFF;
+  background-color: #7AC173;
+  padding: 2px;
+  font-size: 85%;
+}
+.small-change.negative {
+  background-color: #E84A1E;
+}
+.graph-icon {
+  height: 50%;
+  background: url(../images/ADI.svg) no-repeat center left;
+  background-size: contain;
+  margin-bottom: 10px;
+}
+
+graph {
+  display: block;
+  background: #f1f4f6;
+  margin: 10px 0;
+  width: 100%;
+}
+
+graph svg {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  overflow: visible !important;
+  /*border: 2px dotted #3B3B3B;*/
+}
+
+graph .line {
+  stroke-width: 2px;
+  fill: none;
+}
+
+graph text {
+ font-family: "Alegreya Sans SC";
+}
+
+path.domain {
+  fill: none;
+  stroke: rgba(0,0,0,0.1);
+  stroke-width: 1;
+}

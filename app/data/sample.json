@@ -1,0 +1,37 @@
+{
+    "title": "Total Hours of Usage",
+    "xLabel": "Time",
+    "yLabel": "ADIs",
+    "series": [
+        {
+            "title": "actual",
+            "data": [{
+                "x": "17-Mar-14",
+                "y": 2349870
+            },
+            {
+                "x": "18-Mar-14",
+                "y": 3000000
+            },
+            {
+                "x": "19-Mar-14",
+                "y": 1000000
+            },
+            {
+                "x": "20-Mar-14",
+                "y": 2000000
+            }]
+        },
+        {
+            "title": "projected",
+            "data": [{
+                "x": "17-Mar-14",
+                "y": 1456241
+            },
+            {
+                "x": "20-Mar-14",
+                "y": 2500000
+            }]
+        }
+    ]
+}
