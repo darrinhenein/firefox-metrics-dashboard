@@ -180,7 +180,7 @@ module.exports = function (grunt) {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
-        assetsDirs: ['<%= yeoman.dist %>']
+        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
       }
     },
 
@@ -322,6 +322,21 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+    rsync: {
+      options: {
+        args: ["--verbose"],
+        exclude: [".git*", "node_modules", "robots.txt", ".htaccess", ".bowerrc", "bower.json", "package.json", "sshsettings.json", "Gruntfile.js", ".DS_Store", "bower_components/**"],
+        recursive: true
+      },
+      prod: {
+        options: {
+          src: "./dist/",
+          dest: "/home/dhenein/public_html/labs/firefox-dashboard/",
+          host: "people",
+          syncDestIgnoreExcl: true
+        }
+      }
     }
   });
 
@@ -370,6 +385,8 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
+
+  grunt.registerTask('deploy', ['rsync:prod']);
 
   grunt.registerTask('default', [
     'newer:jshint',

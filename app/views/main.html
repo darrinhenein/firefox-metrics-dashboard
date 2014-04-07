@@ -1,57 +1,75 @@
-<div class="header">
-  <h3 class="title primary-font" ng-bind="page.title"></h3>
-  <h3 class="title primary-font floatRight">March 2014</h3>
+<div class="header row">
+  <div class="col-md-6">
+    <h3 class="title primary-font" ng-bind="page.title"></h3>
+    <h3 class="subtitle primary-font floatRight" ng-bind="page.date"></h3>
+  </div>
+  <div class="col-md-6 right links primary-font">
+  <span class="loading" ng-show="isViewLoading"> Loading... </span>
+  <a ng-href="#/desktop" ng-class="{active: isActive('/desktop')}">Desktop</a>
+  <a ng-href="#/mobile" ng-class="{active: isActive('/mobile')}">Android</a>
+  </div>
 </div>
   <div class="row top">
     <div class="col-md-6 item" ng-repeat="graph in rows[0]">
-      <div class="flex-row">
-        <div class="col-md-9">
-          <graph data=graph sizes=sizes size="big"></graph>
-        </div>
-        <div class="col-md-3 flex-column flex-reverse">
-          <div class="graph-icon"></div>
+      <div class="row graphTitle">
+          <div class="col-md-12">
+              <h5 class="primary-font title">
+              {{ graph.title }}
+              <span class="hasTooltip" ng-if="graph.desc" data-toggle="tooltip" title="{{graph.desc}}">?</span>
+              </h5>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+            <graph data=graph sizes=sizes size="big"></graph>
         </div>
       </div>
-      <div class="flex-row">
-        <div class="col-md-4">
-        <span class="small-change primary-font" ng-class="{negative: graph.percChange < 0 }">{{ graph.percChange }}%</span>
+
+      <div class="row">
+        <div class="col-md-2">
+          <span class="small-change primary-font" ng-class="{negative: graph.percChange < 0, empty: !graph.percChange }">{{ graph.percChange }}%</span>
         </div>
-        <div class="col-md-5 right">
-          <p class="big-number primary-font">{{ graph.lastY }}</p>
-        </div>
-        <div class="col-md-3">
-          <h5 class="primary-font title" ng-bind="graph.title"></h5>
-          <p class="primary-font desc">Some text here.</p>
+        <div class="col-md-10 right">
+          <p class="big-number primary-font">{{ graph.lastY || "-" }}</p>
+          <p class="big-unit primary-font">{{ graph.unit }}</p>
         </div>
       </div>
   </div>
-
 </div>
 <div class="row" ng-repeat="i in [1,2]">
-  <div class="col-md-3 item small" ng-repeat="graph in rows[i]">
-        <div class="flex-row">
-          <div class="col-md-7">
-            <graph data=graph sizes=sizes size="small"></graph>
+    <div class="col-md-{{ columnWidth }} item small" ng-repeat="graph in rows[i]">
+      <div class="row graphTitle">
+          <div class="col-md-12">
+            <h5 class="primary-font title">
+            {{ graph.title }}
+            <span class="hasTooltip" ng-if="graph.desc" data-toggle="tooltip" title="{{graph.desc}}">?</span>
+            </h5>
           </div>
-          <div class="col-md-5 flex-column flex-reverse">
-            <div class="graph-icon"></div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+            <graph ng-if="!graph.total" data=graph sizes=sizes size="small"></graph>
+            <div class="numberOnly" ng-if="graph.total">
+              <p class="big-number primary-font">{{ graph.lastYRaw || "-" }}</p>
+            </div>
           </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2">
+        <span class="small-change primary-font" ng-class="{negative: graph.percChange < 0, empty: !graph.percChange }">{{ graph.percChange }}%</span>
         </div>
-        <div class="flex-row">
-          <div class="col-md-3">
-          <span class="small-change primary-font" ng-class="{negative: graph.percChange < 0 }">{{ graph.percChange || 0 }}%</span>
-          </div>
-          <div class="col-md-4 right">
-            <p class="big-number primary-font">{{ graph.lastY || 'n/a'}}</p>
-          </div>
-          <div class="col-md-5">
-            <h5 class="primary-font title" ng-bind="graph.title"></h5>
-            <p class="primary-font desc">Some text here.</p>
-          </div>
+        <div class="col-md-10 right" ng-if="!graph.total">
+            <p class="big-number primary-font">{{ graph.lastY || "-" }}</p>
+            <p class="big-unit primary-font">{{ graph.unit }}</p>
         </div>
-    </div>
+      </div>
+  </div>
 </div>
 
 <div class="footer">
-  <p>♥ Mozilla</p>
+  <p><span class="red">♥</span> Mozilla, 2014.
+      <span class="actual">Actual</span>
+      <span class="projected">Projected</span>
+  </p>
 </div>

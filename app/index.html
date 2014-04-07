@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Firefox Usage & Users</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <link href="//www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700,500,300' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700,500,300' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="ffxDashboardApp">
     <!--[if lt IE 7]>
@@ -27,7 +28,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <a href="https://www.mozilla.org/" id="tabzilla">mozilla</a>
+    <!-- <a href="https://www.mozilla.org/" id="tabzilla">mozilla</a> -->
     <div class="fox"></div>
     <div class="container" ng-view=""></div>
 
@@ -48,23 +49,18 @@
     <![endif]-->
 
     <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/d3/d3.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <!-- endbower -->
+    <script src="bower_components/d3-tip/index.js"></script>
     <!-- endbuild -->
-    <script src="//mozorg.cdn.mozilla.net/tabzilla/tabzilla.js"></script>
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/directives/graph.js"></script>
-        <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/directives/graph.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

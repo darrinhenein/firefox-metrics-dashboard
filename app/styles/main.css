@@ -1,18 +1,37 @@
 body {
-  border-top: 2px solid #fff;
-  background: url(../images/background.png) repeat-x #dce3e9 center -30px;
+  /*border-top: 2px solid #fff;*/
+  background: url(../images/background.png) repeat-x #dce3e9 center -60px;
+}
+
+.loading {
+  text-transform: uppercase;
+  font-size: 80%;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 .primary-font {
-  font-family: "Alegreya Sans SC";
+  font-family: "Open Sans";
 }
 
 .title {
-  background: #333;
-  color: #FFF;
+  /*background: #333;*/
+  /*color: #FFF;*/
   display: inline;
-  padding: 3px;
-  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+  /*padding: 3px 5px 3px 5px;*/
+  margin-bottom: 20px;
+}
+
+.header h3.title {
+  font-size: 250%;
+}
+
+.subtitle {
+  font-weight: 300;
+  display: inline;
+  color: #555;
 }
 
 .title.floatRight {
@@ -21,24 +40,21 @@ body {
 }
 
 .row.top {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 h5.title {
-  font-size: 85%;
-}
-
-.small .title {
-  padding: 1px;
+  font-size: 120%;
 }
 
 .small h5.title {
-  font-size: 95%;
+  font-size: 110%;
 }
 
 .container {
-  padding-top: 60px;
+  padding-top: 20px;
   padding-bottom: 20px;
+  position: relative;
 }
 
 .fox {
@@ -50,19 +66,11 @@ h5.title {
   background: url(../images/fox.png) no-repeat center right;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 /* Custom page footer */
 .footer {
   padding-top: 19px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 /* Customize container */
@@ -95,13 +103,6 @@ h5.title {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
   /* Space out the masthead */
   .header {
     margin-bottom: 40px;
@@ -127,10 +128,6 @@ h5.title {
   flex-direction: row;
 }
 
-.flex-row > div {
-  padding-left: 0px;
-}
-
 .flex-reverse {
   justify-content: flex-end;
 }
@@ -140,66 +137,228 @@ h5.title {
 }
 
 .small {
-  font-size: 70%;
+  font-size: 85%;
 }
 
 .desc {
-  font-size: 80%;
+  font-size: 85%;
+  margin-left: 4px;
 }
 
 .small .desc {
-  font-size: 100%;
+  font-size: 80%;
 }
 
 .big-number {
   font-weight: bold;
-  font-size: 350%;
+  font-size: 250%;
   margin-top: -13px;
+  color: #0096eb;
+}
+.big-unit {
+  font-weight: bold;
+  font-size: 100%;
+  text-transform: uppercase;
+  margin-top: -20px;
+  color: #0096eb;
+  opacity: 0.4;
 }
 
 .small-change {
-  color: #FFF;
-  background-color: #7AC173;
-  padding: 2px;
-  font-size: 85%;
-}
-.small-change.negative {
-  background-color: #E84A1E;
-}
-.graph-icon {
-  height: 50%;
-  background: url(../images/ADI.svg) no-repeat center left;
-  background-size: contain;
-  margin-bottom: 10px;
+  font-weight: bold;
+  color: #72ca62;
+  padding: 2px 4px 2px 4px;
+  opacity: 0;
 }
 
-graph {
+.small-change:before {
+  content: '+';
+}
+
+.small-change.negative {
+  color: #E84A1E;
+}
+
+.small-change.negative:before {
+  content: '';
+}
+
+.small-change.empty:before {
+  content: '-';
+}
+
+.small-change.empty {
+  color: #AAA;
+}
+
+graph, .numberOnly {
   display: block;
-  background: #f1f4f6;
+  background: #FFF;
+  /*background: #eceff3;*/
   margin: 10px 0;
+  border-radius: 3px;
   width: 100%;
 }
 
 graph svg {
   width: 100%;
   display: block;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 3px;
+  /*border: 1px solid rgba(255, 255, 255, 0.5);*/
   overflow: visible !important;
   /*border: 2px dotted #3B3B3B;*/
 }
 
 graph .line {
-  stroke-width: 2px;
+  stroke-width: 3px;
   fill: none;
 }
 
 graph text {
- font-family: "Alegreya Sans SC";
+ font-family: "Open Sans";
+ /*font-weight: bold;*/
+ fill: #666;
+ font-size: 85%;
+}
+
+.small graph text {
+  font-size: 80%;
+}
+
+.small .small-change {
+  font-size: 100%;
+}
+
+graph text.noData {
+ fill: #AAA;
 }
 
 path.domain {
   fill: none;
   stroke: rgba(0,0,0,0.1);
   stroke-width: 1;
+}
+
+.axis .domain{
+  stroke: #E1E1E1;
+}
+
+.area {
+    fill: #0096eb;
+    opacity: 0.1;
+    stroke-width: 0;
+}
+
+.links {
+  margin-top: 13px;
+}
+
+.links a{
+  color: #FFF;
+  background-color: #A8A9AD;
+  padding: 16px;
+  font-size: 100%;
+  margin: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: -4px;
+}
+
+.links a.active {
+  background-color: #0096eb;
+  color: #fff;
+}
+
+.links a:hover {
+  text-decoration: none;
+  background-color: #00a6eb;
+  color: #fff;
+}
+
+.footer {
+  font-weight: bold;
+  font-size: 80%;
+}
+
+.footer span.red {
+  color: #E84A1E;
+}
+
+.footer .actual {
+  color: #0096eb;
+}
+
+.footer .projected {
+  color: #ED8F5E;
+}
+
+.hasTooltip {
+  opacity: 0.7;
+  color: #99A1AD;
+  background: #FFF;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 90%;
+  display: inline-block;
+  text-align: center;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.hasTooltip:hover {
+  opacity: 1;
+  color: #E84A1E;
+}
+
+.tooltip {
+  font-weight: normal;
+}
+
+
+graph .line-1 {
+  stroke-width: 1px;
+  fill: none;
+  opacity: 0.7;
+}
+
+graph .circle-1 {
+  stroke-width: 2px;
+  opacity: 0.7;
+}
+
+.svgTooltip {
+  color: #FFF;
+  background: #0096eb;
+  border-radius: 3px;
+  font-size: 85%;
+  font-weight: bold;
+  padding: 4px 6px 4px 6px;
+}
+
+.svgTooltip.tooltip-1 {
+  background: #ED8F5F;
+}
+
+.svgTooltipTarget:hover {
+  fill: #0096eb;
+  stroke: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+
+.svgTooltipTarget.circle-1:hover {
+  fill: #ED8F5F;
+  stroke: #FAF9DF;
+}
+.numberOnly {
+  padding: 32px;
+}
+
+.numberOnly .big-number {
+  font-size: 400%;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+  top: 10px;
 }
